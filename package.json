@@ -14,7 +14,8 @@
     "test:backend": "npm run test --workspace=backend",
     "test:frontend": "npm run test --workspace=frontend",
     "benchmark": "npm run benchmark --workspace=backend",
-    "lint": "npm run lint --workspace=backend && npm run lint --workspace=frontend"
+    "lint": "npm run lint --workspace=backend && npm run lint --workspace=frontend",
+    "start": "npm run preview --workspace=frontend -- --host 0.0.0.0"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
