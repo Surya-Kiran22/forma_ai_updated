@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-950 text-cream-100 font-sans antialiased min-h-screen;
+  }
+
+  ::selection {
+    @apply bg-emerald-500 text-ink-950;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050806;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a4437;
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a5d4a;
+  }
+
+  select option {
+    background-color: #0f1813;
+    color: #efeadd;
+  }
+}
+
+/* Reusable premium UI primitives used across the app screens */
+@layer components {
+  .panel {
+    @apply bg-ink-800/80 border border-ink-500/60 rounded-2xl shadow-panel backdrop-blur-sm;
+  }
+
+  .panel-inset {
+    @apply bg-ink-900/70 border border-ink-600/70 rounded-xl;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-ink-950 font-semibold transition-all duration-200 hover:from-emerald-400 hover:to-emerald-500 hover:shadow-glow-sm disabled:from-ink-600 disabled:to-ink-600 disabled:text-cream-400 disabled:shadow-none disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-emerald-500/50 bg-emerald-500/10 text-emerald-300 font-semibold transition-all duration-200 hover:bg-emerald-500/20 hover:border-emerald-400 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink-500 text-cream-200 font-semibold transition-all duration-200 hover:border-emerald-400/60 hover:text-emerald-300;
+  }
+
+  .input-dark {
+    @apply w-full bg-ink-900/80 border border-ink-500 rounded-lg px-3 py-2 text-cream-100 placeholder-cream-400/60 focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400/70 transition-all;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-400;
+  }
+
+  .heading-serif {
+    @apply font-serif tracking-tight text-cream-50;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-emerald-300 via-cream-50 to-gold-300 bg-clip-text text-transparent;
+  }
+}
+
+/* Smooth accordion transition */
+.animate-accordion-down {
+  animation: accordionDown 0.2s ease-out forwards;
+}
+
+@keyframes accordionDown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
